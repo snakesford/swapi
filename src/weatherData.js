@@ -1,4 +1,4 @@
-export const robots = [
+export const weatherData = [
   {
     "location": {
         "name": "Tigard",
