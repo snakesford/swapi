@@ -15,6 +15,7 @@ const CardList = ({robots}) => {
     }
     </div>
   );
+  
 }
 
 export default CardList
