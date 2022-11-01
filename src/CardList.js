@@ -7,8 +7,11 @@ const CardList = ({weatherData}) => {
       {weatherData.map((name, i) => {
         return (
           <Card
-            key={name}
-            maxtemp_c={weatherData[i].maxtemp_c}
+            key={i}
+            text={weatherData[i].text}
+            day={weatherData[i].day}
+            // temp_f={weatherData[i].temp_f}
+            // temp_c={weatherData[i].temp_c}
           />
         )
       })
