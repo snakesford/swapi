@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import CardList from './CardList.js';
-import SearchBox from './SearchBox.js';
-import { weatherData } from './weatherData';
+import CardList from '../components/CardList';
+import SearchBox from '../components/SearchBox.js';
+import { weatherData } from '../weatherData';
 
 class App extends Component {
   constructor() {
@@ -18,16 +18,17 @@ class App extends Component {
     .then(response => response.json())
     .then(weather => this.setState({ weatherData: weather}))
   }
-
+  
   onSearchChange = (event) => {
-    this.setState({ searchField: event.target.value })
-  }
-
-  render() {
-    const filteredWeather = this.state.weatherData.filter(weatherData => {
-      return weatherData.name.toLowerCase().includes(this.state.searchField.toLowerCase());
-    })
-    if (this.state.weatherData.length === 0) {
+      this.setState({ searchField: event.target.value })
+    }
+    
+    render() {
+      const { weatherData, searchField } = this.state;
+    const filteredWeather = weatherData.filter(weather => {
+        return weather.name.toLowerCase().includes(searchField.toLowerCase());
+      })
+    if (!weatherData.length) {
       <h1>Loading weather</h1>
     } else {
       return (

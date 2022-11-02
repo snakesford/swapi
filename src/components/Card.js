@@ -6,13 +6,8 @@ const Card = ({wind_mph, temp_c, temp_f, name, email, address}) => {
         <h1>Weather</h1>
       <img alt='weatherData' src='https://robohash.org/test?200x200' />
       <div>
-        {/* <h3>Fahrenheit: {temp_f}º</h3>
-        <h3>Celsius: {temp_c}º</h3>
-        <h3>{`wind_mph`}: {wind_mph}</h3>
-        <h3>Wind speed: {wind_mph} MPH</h3> */}
-        <h1>Name: {name}</h1>
+        <h2>Name: {name}</h2>
         <p>Email: {email}</p>
-        <p>Address {address}</p>
       </div>
     </div>
   )
