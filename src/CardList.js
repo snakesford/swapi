@@ -6,13 +6,14 @@ const CardList = ({weatherData}) => {
     <div>
       {weatherData.map((name, i) => {
         return (
-          <Card
-            key={i}
-            text={weatherData[i].text}
-            day={weatherData[i].day}
-            // temp_f={weatherData[i].temp_f}
-            // temp_c={weatherData[i].temp_c}
-          />
+            <Card
+              key={i}
+              // wind_mph={weatherData[i].wind_mph}
+              // temp_f={weatherData[i].temp_f}
+              // temp_c={weatherData[i].temp_c}
+              name={weatherData[i].name}
+              email={weatherData[i].email}
+            />
         )
       })
     }
