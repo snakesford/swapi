@@ -33,7 +33,8 @@ class App extends Component {
       return (
         <div className='tc'>
           <h1>Weather data</h1>
-          <SearchBox searchChange/>
+          {/* <SearchBox searchChange={this.onSearchChange}/> */}
+          <SearchBox />
           <CardList weatherData={filteredWeather}/>
         </div>
       );
