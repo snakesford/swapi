@@ -10,6 +10,7 @@ const CardList = ({weatherData}) => {
               key={i}
               title={weatherData[i].title}
               email={weatherData[i].email}
+              // region={weatherData[i].location.region}
               street={weatherData[i].address.street}
 
             />
