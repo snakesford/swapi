@@ -24,7 +24,7 @@ class App extends Component {
     
     render() {
       const { weatherData, searchField } = this.state;
-    const filteredWeather = weatherData.filter(weather => {
+      const filteredWeather = weatherData.filter(weather => {
         return weather.name.toLowerCase().includes(searchField.toLowerCase());
       })
     if (!weatherData.length) {
