@@ -7,8 +7,9 @@ const Card = ({name, region, email, street}) => {
       <img alt='weatherData' src='https://robohash.org/test?200x200' />
       <div>
         <h2>Region: {region}</h2>
-        <p>Email: {email}</p>
-        <p>street: {street}</p>
+        <h3>Name {name}</h3>
+        {/* <p>Email: {email}</p> */}
+        {/* <p>street: {street}</p> */}
       </div>
     </div>
   )
