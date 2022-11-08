@@ -18,7 +18,7 @@ class App extends Component {
     .then(weather => this.setState({ weatherData: weather}))
   }
   
-  onSearchChange = (event) => {
+    onSearchChange = (event) => {
       this.setState({ searchField: event.target.value })
     }
     
