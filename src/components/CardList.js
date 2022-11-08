@@ -8,8 +8,9 @@ const CardList = ({weatherData}) => {
         return (
             <Card
               key={i}
-              name={weatherData[i].name}
+              title={weatherData[i].title}
               email={weatherData[i].email}
+              street={weatherData[i].address.street}
 
             />
         )

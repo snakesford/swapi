@@ -12,8 +12,8 @@ class App extends Component {
   }
  
   componentDidMount() {
-    // fetch('http://api.weatherapi.com/v1/current.json?key=1db28ab95d2b4a37ac7171352222610&q=Tigard&aqi=no/')
     fetch('https://jsonplaceholder.typicode.com/users')
+    // fetch('https://jsonplaceholder.typicode.com/todos')
     .then(response => response.json())
     .then(weather => this.setState({ weatherData: weather}))
   }
@@ -25,7 +25,7 @@ class App extends Component {
     render() {
       const { weatherData, searchField } = this.state;
       const filteredWeather = weatherData.filter(weather => {
-        return weather.name.toLowerCase().includes(searchField.toLowerCase());
+        return weather.address.street.toLowerCase().includes(searchField.toLowerCase());
       })
     if (!weatherData.length) {
       <h1>Loading weather</h1>
