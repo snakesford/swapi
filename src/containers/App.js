@@ -41,7 +41,11 @@ class App extends Component {
   }
   
   onButtonPress = (event) => {
-    this.fetchApi()
+    if (this.state.searchField != '') {
+      this.fetchApi()
+    } else {
+      console.log("nothing in search field");
+    }
   }
 
   componentDidUpdate(newProps, newState) {
