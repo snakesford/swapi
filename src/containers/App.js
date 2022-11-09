@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import CardList from '../components/CardList';
 import SearchBox from '../components/SearchBox.js';
 import SubmitButton from '../components/SubmitButton.js'
-// import weatherApi from '../weatherApi.json';
 
 class App extends Component {
   constructor() {
@@ -59,13 +58,8 @@ class App extends Component {
   render() {
     console.log("render")
     const { weatherData } = this.state;
-    // const filteredWeather = weatherData.filter(weather => {
-    //   return weather.address.street.toLowerCase().includes(searchField.toLowerCase());
-      // return weather.location.region.toLowerCase().includes(searchField.toLowerCase());
-    // })
     return (
       <div className='tc'>
-        {/* <h1>Weather data</h1> */}
           <SubmitButton buttonPress={this.onButtonPress}/>
           <SearchBox searchChange={this.onSearchChange}/>
         <CardList weatherData={weatherData}/>

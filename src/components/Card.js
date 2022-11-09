@@ -10,8 +10,6 @@ const Card = ({name, region, temp_f, temp_c}) => {
         <h3>Name: {name}</h3>
         <h3>Fahrenheit {temp_f}º</h3>
         <h3>Celsius {temp_c}º</h3>
-        {/* <p>Email: {email}</p> */}
-        {/* <p>street: {street}</p> */}
       </div>
     </div>
   )
