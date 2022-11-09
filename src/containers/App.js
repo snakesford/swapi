@@ -8,7 +8,7 @@ class App extends Component {
     super()
     this.state = {
       weatherData: [],
-      searchField: 'Tigard'
+      searchField: '45.57592 -122.85168'
     }
   }
 
@@ -44,6 +44,7 @@ class App extends Component {
     if (this.state.searchField != '') {
       this.fetchApi()
     } else {
+      // this.setState({ searchField: '45.57592 -122.85168'})
       console.log("nothing in search field");
     }
   }
