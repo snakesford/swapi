@@ -29,10 +29,6 @@ class App extends Component {
       .then(response => response.json())
       .then(weather => this.setState({ weatherData: [weather]}))
       .catch(err => console.error('error', err));
-    // fetch('http://api.weatherapi.com/v1/current.json?key=1db28ab95d2b4a37ac7171352222610&q='+this.state.searchField+'&aqi=yes')
-    // .then(response => response.json())
-    // .then(weather => this.setState({ weatherData: [weather]}))
-    // .catch(err => console.error('error', err));
   }
   componentDidMount() {
     console.log('didmount');
@@ -48,21 +44,12 @@ class App extends Component {
     this.fetchApi()
   }
 
-  // componentWillUpdate(newProps, newState) {
-  // }
-  
   componentDidUpdate(newProps, newState) {
     console.log('after render');
     console.log('before render');
     console.log('search field', this.state.searchField);
     console.log("word", newState.searchField);
   }
-
-  // componentDidUpdate(newProps, newState) {
-  //   console.log('after render');
-  //   console.log("newProps", newProps);
-  //   console.log("newState", newState);
-  // }
 
   render() {
     console.log("render")
