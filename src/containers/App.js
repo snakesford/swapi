@@ -10,14 +10,29 @@ class App extends Component {
     this.state = {
       weatherData: [],
       searchField: 'Tigard'
-      // word: ''
     }
   }
 
+
+  
   async fetchApi() {
-    fetch('http://api.weatherapi.com/v1/current.json?key=1db28ab95d2b4a37ac7171352222610&q='+this.state.searchField+'&aqi=yes')
-    .then(response => response.json())
-    .then(weather => this.setState({ weatherData: [weather]}))
+    
+    const options = {
+      method: 'GET',
+      headers: {
+        'X-RapidAPI-Key': '3a836c49fdmshf423ee7c43600d9p130177jsn92668590654f',
+        'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'
+      }
+    };
+    
+    fetch('https://weatherapi-com.p.rapidapi.com/current.json?q='+this.state.searchField+'', options)
+      .then(response => response.json())
+      .then(weather => this.setState({ weatherData: [weather]}))
+      .catch(err => console.error('error', err));
+    // fetch('http://api.weatherapi.com/v1/current.json?key=1db28ab95d2b4a37ac7171352222610&q='+this.state.searchField+'&aqi=yes')
+    // .then(response => response.json())
+    // .then(weather => this.setState({ weatherData: [weather]}))
+    // .catch(err => console.error('error', err));
   }
   componentDidMount() {
     console.log('didmount');
@@ -33,8 +48,8 @@ class App extends Component {
     this.fetchApi()
   }
 
-  componentWillUpdate(newProps, newState) {
-  }
+  // componentWillUpdate(newProps, newState) {
+  // }
   
   componentDidUpdate(newProps, newState) {
     console.log('after render');
