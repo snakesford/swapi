@@ -28,7 +28,8 @@ class App extends Component {
     .then(response => response.json())
     .then(weather => this.setState({ weatherData: [weather]}))
     .catch(err => console.error('error', err));
-    //add check somewhere to make sure string is valid before rerendering 
+    //add check somewhere to make sure string is valid before rerendering
+    //enter button to submit
   }
   componentDidMount() {
     console.log('didmount');
@@ -41,7 +42,7 @@ class App extends Component {
   }
   
   onButtonPress = (event) => {
-    if (this.state.searchField != '') {
+    if (this.state.searchField !== '') {
       this.fetchApi()
     } else {
       // this.setState({ searchField: '45.57592 -122.85168'})
