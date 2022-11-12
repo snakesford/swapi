@@ -29,7 +29,6 @@ class App extends Component {
     .then(weather => this.setState({ weatherData: [weather]}))
     .catch(err => console.log('error', err));
     //add check somewhere to make sure string is valid before rerendering
-    //enter button to submit
   }
   componentDidMount() {
     this.fetchApi()
