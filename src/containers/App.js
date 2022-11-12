@@ -7,7 +7,7 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      weatherData: [],
+      weatherData: [], 
       searchField: '45.57592 -122.85168'
     }
   }
@@ -15,7 +15,7 @@ class App extends Component {
 
   
   async fetchApi() {
-    
+
     const options = {
       method: 'GET',
       headers: {
@@ -25,15 +25,13 @@ class App extends Component {
     };
     
     fetch('https://weatherapi-com.p.rapidapi.com/current.json?q='+this.state.searchField+'', options)
-    .then(response => response.json())
+    .then(response => response.json(), console.log())
     .then(weather => this.setState({ weatherData: [weather]}))
-    .catch(err => console.error('error', err));
+    .catch(err => console.log('error', err));
     //add check somewhere to make sure string is valid before rerendering
     //enter button to submit
   }
   componentDidMount() {
-    console.log('didmount');
-    console.log('did mount searchfield', this.state.searchField);
     this.fetchApi()
   }
   
@@ -50,15 +48,7 @@ class App extends Component {
     }
   }
 
-  componentDidUpdate(newProps, newState) {
-    console.log('after render');
-    console.log('before render');
-    console.log('search field', this.state.searchField);
-    console.log("word", newState.searchField);
-  }
-
   render() {
-    console.log("render")
     const { weatherData } = this.state;
     return (
       <div className='tc'>
