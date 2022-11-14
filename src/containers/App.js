@@ -14,6 +14,22 @@ class App extends Component {
 
 
   
+  // async fetchApi() {
+  //   const options = {
+  //     method: 'GET',
+  //     headers: {
+  //       'X-RapidAPI-Key': '3a836c49fdmshf423ee7c43600d9p130177jsn92668590654f',
+  //       'X-RapidAPI-Host': 'aerisweather1.p.rapidapi.com'
+  //     }
+  //   };
+    
+  //   fetch('https://aerisweather1.p.rapidapi.com/observations/'+this.state.searchField+'', options)
+  //     .then(response => response.json())
+  //     .then(weather => this.setState({ weatherData: [weather]}))
+  //     .catch(err => console.log('error', err));
+  // }
+  
+
   async fetchApi() {
 
     const options = {
