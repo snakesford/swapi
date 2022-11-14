@@ -25,11 +25,12 @@ class App extends Component {
     };
     
     fetch('https://weatherapi-com.p.rapidapi.com/current.json?q='+this.state.searchField+'', options)
-    .then(response => response.json(), console.log())
+    .then(response => response.json())
     .then(weather => this.setState({ weatherData: [weather]}))
     .catch(err => console.log('error', err));
     //add check somewhere to make sure string is valid before rerendering
   }
+
   componentDidMount() {
     this.fetchApi()
   }
