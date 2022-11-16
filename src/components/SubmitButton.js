@@ -1,11 +1,11 @@
 import React from 'react';
 
 const SubmitButton = ({ buttonPress }) => {
-  function control(e) {
-    if(e.keyCode === 13) {
-      buttonPress()
-    }
-  }
+  // function control(e) {
+  //   if(e.keyCode === 13) {
+  //     buttonPress()
+  //   }
+  // }
   // document.addEventListener('keyup', control)
   return (
     <div className='pa3'>
