@@ -57,8 +57,7 @@ class App extends Component {
     this.setState({
       url: 'https://weatherapi-com.p.rapidapi.com/current.json?q=',
       apiHost: this.state.apiHost0,
-      bool: false,
-      searchField: '45.57592, -122.85168'
+      bool: false
     })
     console.log("weatherAPI.com", this.state.url);
   }
