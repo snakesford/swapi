@@ -9,14 +9,14 @@ const CardList = ({weatherData, bool}) => {
           <div key={i}>
           {bool ?
           <h1>Loading API</h1>
-        //   <Card
-        //     className='AREI'
-        //     key={i}
-        //     bool={bool}
-        //     name={weatherData[i].response.place.name}
-        //     tempF={weatherData[i].response.ob.tempF}
-        //     weather={weatherData[i].response.ob.weather}
-        //     windMPH={weatherData[i].response.ob.windMPH}
+          // <Card
+            // className='AREI'
+            // key={i}
+            // bool={bool}
+            // name={weatherData[i].response.place.name}
+            // tempF={weatherData[i].response.ob.tempF}
+            // weather={weatherData[i].response.ob.weather}
+            // windMPH={weatherData[i].response.ob.windMPH}
         // />
         :
           <Card
