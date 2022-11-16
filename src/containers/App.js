@@ -14,7 +14,7 @@ class App extends Component {
       url: 'https://weatherapi-com.p.rapidapi.com/current.json?q=',
       url1: 'https://aerisweather1.p.rapidapi.com/observations/',
       apiKey: '3a836c49fdmshf423ee7c43600d9p130177jsn92668590654f',
-      apiHost: 'aerisweather1.p.rapidapi.com',
+      apiHost: 'weatherapi-com.p.rapidapi.com',
       apiHost0: 'weatherapi-com.p.rapidapi.com',
       apiHost1: 'aerisweather1.p.rapidapi.com'
     }
