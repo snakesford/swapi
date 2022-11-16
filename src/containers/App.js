@@ -64,10 +64,10 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.fetchApi()
+    this.onButtonPress()
     this.changeTheField()
   }
-  
+
   onSearchChange = (event) => {
     this.setState({ searchField: event.target.value })
   }
@@ -84,12 +84,12 @@ class App extends Component {
     const { weatherData } = this.state;
     return (
       <div className='tc'>
-          <button onClick={() => { this.changeToCom(); this.fetchApi()}} className="button button1">Use weatherapi-com</button>
-          <button onClick={() => { this.changeToAe(); this.fetchApi()}} className="button button2">Use aerisweather</button>
+          <button onClick={() => { this.changeToCom(); this.onButtonPress()}} className="button button1">Use weatherapi-com</button>
+          <button onClick={() => { this.changeToAe(); this.onButtonPress()}} className="button button2">Use aerisweather</button>
           <SubmitButton buttonPress={this.onButtonPress}/>
           <SearchBox searchChange={this.onSearchChange}/>
         <CardList weatherData={weatherData} bool={this.state.bool}/>
-        {console.log("wD", weatherData)}
+        {console.log("WD", weatherData)}
       </div>
     );
   }
