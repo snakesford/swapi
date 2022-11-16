@@ -36,7 +36,6 @@ const CardList = ({weatherData, bool}) => {
     }
     </div>
   );
-
 }
 
 export default CardList
