@@ -9,43 +9,31 @@ class App extends Component {
     super()
     this.state = {
       weatherData: [], 
-      searchField: '45.57592, -122.85168',
-      bool: false
+      searchField: '45.57592 -122.85168',
+      bool: false,
+      url0: 'https://weatherapi-com.p.rapidapi.com/current.json?q=',
+      url1: 'https://aerisweather1.p.rapidapi.com/observations/'
     }
   }
 
-
-  
-
-  
-  // async fetchApi() {
-  //   const options = {
-  //     method: 'GET',
-  //     headers: {
-  //       'X-RapidAPI-Key': '3a836c49fdmshf423ee7c43600d9p130177jsn92668590654f',
-  //       'X-RapidAPI-Host': 'aerisweather1.p.rapidapi.com'
-  //     }
-  //   };
-    
-  //   fetch('https://aerisweather1.p.rapidapi.com/observations/'+this.state.searchField+'', options)
-  //     .then(response => response.json())
-  //     .then(weather => this.setState({ weatherData: [weather]}))
-  //     .catch(err => console.log('error', err));
-  // }
-  
-
   async fetchApi() {
-
-    const options = {
-      method: 'GET',
-      headers: {
-        'X-RapidAPI-Key': '3a836c49fdmshf423ee7c43600d9p130177jsn92668590654f',
-        'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'
-      }
-    };
-    
-    fetch('https://weatherapi-com.p.rapidapi.com/current.json?q='+this.state.searchField+'', options)
-    .then(response => response.json())
+      const options = {
+        method: 'GET',
+        headers: {
+          'X-RapidAPI-Key': '3a836c49fdmshf423ee7c43600d9p130177jsn92668590654f',
+          'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'
+        }
+      };
+    //   const options = {
+    //     method: 'GET',
+    //     headers: {
+    //       'X-RapidAPI-Key': '3a836c49fdmshf423ee7c43600d9p130177jsn92668590654f',
+    //       'X-RapidAPI-Host': 'aerisweather1.p.rapidapi.com'
+    //     }
+    //   };
+      
+      fetch(''+this.state.url0+''+this.state.searchField+'', options)
+      .then(response => response.json())
     .then(weather => this.setState({ weatherData: [weather]}))
     .catch(err => console.log('error', err));
     //add check somewhere to make sure string is valid before rerendering
