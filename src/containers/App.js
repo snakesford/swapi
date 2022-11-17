@@ -38,6 +38,21 @@ class App extends Component {
     //add check somewhere to make sure string is valid before rerendering
   }
 
+  async fetchAApi() {
+      const options = {
+        method: 'GET',
+        headers: {
+          'X-RapidAPI-Key': ''+this.state.apiKey+'',
+          'X-RapidAPI-Host': ''+this.state.apiHost1+''
+        }
+      };
+      
+      fetch(''+this.state.url1+''+this.state.searchField+'', options)
+      .then(response => response.json())
+      .then(weather => this.setState({ weatherData: [weather]}))
+      .catch(err => console.log('error', err));
+  }
+
   changeTheField = () => {
     this.setState({
       searchField: ''
@@ -45,19 +60,23 @@ class App extends Component {
   }
 
   changeToAe = () => {
+    this.fetchAApi()
+    console.log("fetchAAPi");
     this.setState({
+      bool: true,
       url: 'https://aerisweather1.p.rapidapi.com/observations/',
-      apiHost: this.state.apiHost1,
-      bool: true
+      apiHost: this.state.apiHost1
     })
+    console.log("state dioen");
     console.log("State is now using aeris", this.state.url);
+    console.log("State is now apiHost", this.state.apiHost);
   }
 
   changeToCom = () => {
     this.setState({
+      bool: false,
       url: 'https://weatherapi-com.p.rapidapi.com/current.json?q=',
-      apiHost: this.state.apiHost0,
-      bool: false
+      apiHost: this.state.apiHost0
     })
     console.log("weatherAPI.com", this.state.url);
   }
@@ -83,12 +102,14 @@ class App extends Component {
     const { weatherData } = this.state;
     return (
       <div className='tc'>
-          <button onClick={() => { this.changeToCom(); this.onButtonPress()}} className="button button1">Use weatherapi-com</button>
-          <button onClick={() => { this.changeToAe(); this.onButtonPress()}} className="button button2">Use aerisweather</button>
+          <button onClick={() => { this.changeToCom()}} className="button button1">Use weatherapi-com</button>
+          <button onClick={() => { this.changeToAe()}} className="button button2">Use aerisweather</button>
           <SubmitButton buttonPress={this.onButtonPress}/>
           <SearchBox searchChange={this.onSearchChange}/>
         <CardList weatherData={weatherData} bool={this.state.bool}/>
         {console.log("WD", weatherData)}
+        {console.log('', this.state.apiHost)}
+        {console.log('', this.state.url)}
       </div>
     );
   }
