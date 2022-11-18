@@ -34,7 +34,7 @@ class App extends Component {
     .then(weather => this.setState({ weatherData: [weather]}))
     .catch(err => console.log('error', err));
 
-    console.log('lbahaurhiyugcgahflasuh');
+    console.log("Fetch", this.state.weatherData)
     //add check somewhere to make sure string is valid before rerendering
   }
 
@@ -51,6 +51,7 @@ class App extends Component {
       .then(response => response.json())
       .then(weather => this.setState({ weatherData: [weather]}))
       .catch(err => console.log('error', err));
+      console.log("aapi", this.state.weatherData)
   }
 
   changeTheField = () => {
@@ -60,25 +61,21 @@ class App extends Component {
   }
 
   changeToAe = () => {
-    this.fetchAApi()
-    console.log("fetchAAPi");
     this.setState({
       bool: true,
       url: 'https://aerisweather1.p.rapidapi.com/observations/',
-      apiHost: this.state.apiHost1
+      apiHost: this.state.apiHost1,
     })
-    console.log("state dioen");
-    console.log("State is now using aeris", this.state.url);
-    console.log("State is now apiHost", this.state.apiHost);
+    this.onButtonPress()
   }
 
   changeToCom = () => {
     this.setState({
       bool: false,
       url: 'https://weatherapi-com.p.rapidapi.com/current.json?q=',
-      apiHost: this.state.apiHost0
+      apiHost: this.state.apiHost0,
     })
-    console.log("weatherAPI.com", this.state.url);
+    this.onButtonPress()
   }
 
   componentDidMount() {
@@ -92,7 +89,11 @@ class App extends Component {
   
   onButtonPress = () => {
     if (this.state.searchField !== '') {
-      this.fetchApi()
+      if (!this.state.bool) {
+        this.fetchApi()
+      } else {
+        this.fetchAApi()
+      }
     } else {
       console.log("nothing in search field");
     }
@@ -107,9 +108,6 @@ class App extends Component {
           <SubmitButton buttonPress={this.onButtonPress}/>
           <SearchBox searchChange={this.onSearchChange}/>
         <CardList weatherData={weatherData} bool={this.state.bool}/>
-        {console.log("WD", weatherData)}
-        {console.log('', this.state.apiHost)}
-        {console.log('', this.state.url)}
       </div>
     );
   }
