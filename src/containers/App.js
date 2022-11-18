@@ -66,7 +66,7 @@ class App extends Component {
       url: 'https://aerisweather1.p.rapidapi.com/observations/',
       apiHost: this.state.apiHost1,
     })
-    this.onButtonPress()
+    this.onButtonPressAApi()
   }
 
   changeToCom = () => {
@@ -78,6 +78,7 @@ class App extends Component {
     this.onButtonPress()
   }
 
+  
   componentDidMount() {
     this.onButtonPress()
     this.changeTheField()
@@ -86,7 +87,17 @@ class App extends Component {
   onSearchChange = (event) => {
     this.setState({ searchField: event.target.value })
   }
-  
+
+
+  onButtonPressAApi = () => {
+    if (this.state.searchField !== '') {
+        this.fetchAApi()
+    } else {
+      console.log("nothing in search field");
+    }
+  }
+
+
   onButtonPress = () => {
     if (this.state.searchField !== '') {
       if (!this.state.bool) {
