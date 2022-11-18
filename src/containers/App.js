@@ -33,7 +33,6 @@ class App extends Component {
       .then(response => response.json())
     .then(weather => this.setState({ weatherData: [weather]}))
     .catch(err => console.log('error', err));
-
     console.log("Fetch", this.state.weatherData)
     //add check somewhere to make sure string is valid before rerendering
   }
@@ -62,18 +61,14 @@ class App extends Component {
 
   changeToAe = () => {
     this.setState({
-      bool: true,
-      url: 'https://aerisweather1.p.rapidapi.com/observations/',
-      apiHost: this.state.apiHost1,
+      bool: true
     })
     this.onButtonPressAApi()
   }
 
   changeToCom = () => {
     this.setState({
-      bool: false,
-      url: 'https://weatherapi-com.p.rapidapi.com/current.json?q=',
-      apiHost: this.state.apiHost0,
+      bool: false
     })
     this.onButtonPress()
   }
