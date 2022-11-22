@@ -1,5 +1,8 @@
 import React from 'react';
 import Card from './Card.js'
+import Temp from './Temp.js'
+import Name from './Name.js'
+import Condition from './Condition.js'
 
 const CardList = ({weatherData}) => {
   return (
@@ -7,13 +10,18 @@ const CardList = ({weatherData}) => {
       {weatherData.map((name, i) => {
         return (
           <div key={i}>
-          <Card
-            key={i}
-            region={weatherData[i].location.region}
-            name={weatherData[i].location.name}
+            <Name
+              region={weatherData[i].location.region}
+              name={weatherData[i].location.name}
+            />
+          <Temp 
             temp_f={weatherData[i].current.temp_f}
-            wind_mph={weatherData[i].current.wind_mph}
+          />
+          <Condition 
             text={weatherData[i].current.condition.text}
+          />
+          <Card
+            wind_mph={weatherData[i].current.wind_mph}
           />
         </div>
             
