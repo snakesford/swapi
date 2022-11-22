@@ -5,7 +5,7 @@ const Card = ({bool, name, region, temp_f, wind_mph, windMPH, text, weather, tem
     <div className='bg-light-green dib br3 pa3 ma2 bw2 shadow-5'>
         
         {bool ? 
-        <div className='pr3 pl3 AREI'>
+        <div className='pr3 pl3'>
           <h1>{tempF}º</h1>
           <h2>{weather}º</h2>
           <h3>{windMPH} MPH</h3>

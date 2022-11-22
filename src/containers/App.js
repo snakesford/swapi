@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import CardList from '../components/CardList';
+import CardList2 from '../components/CardList2';
 import SearchBox from '../components/SearchBox.js';
 import SubmitButton from '../components/SubmitButton.js'
 import './App.css'
@@ -8,7 +9,8 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      weatherData: [], 
+      weatherData: [],
+      weatherData2: [],
       searchField: '45.57592, -122.85168',
       bool: false,
       url: 'https://weatherapi-com.p.rapidapi.com/current.json?q=',
@@ -33,7 +35,6 @@ class App extends Component {
       .then(response => response.json())
     .then(weather => this.setState({ weatherData: [weather]}))
     .catch(err => console.log('error', err));
-    console.log("Fetch", this.state.weatherData)
     //add check somewhere to make sure string is valid before rerendering
   }
 
@@ -48,9 +49,8 @@ class App extends Component {
       
       fetch(''+this.state.url1+''+this.state.searchField+'', options)
       .then(response => response.json())
-      .then(weather => this.setState({ weatherData: [weather]}))
+      .then(weather => this.setState({ weatherData2: [weather]}))
       .catch(err => console.log('error', err));
-      console.log("aapi", this.state.weatherData)
   }
 
   changeTheField = () => {
@@ -95,25 +95,29 @@ class App extends Component {
 
   onButtonPress = () => {
     if (this.state.searchField !== '') {
-      if (!this.state.bool) {
         this.fetchApi()
-      } else {
-        this.fetchAApi()
-      }
     } else {
       console.log("nothing in search field");
     }
   }
 
   render() {
-    const { weatherData } = this.state;
+    const { weatherData, weatherData2, bool } = this.state;
     return (
       <div className='tc'>
           <button onClick={() => { this.changeToCom()}} className="button button1">Use weatherapi-com</button>
           <button onClick={() => { this.changeToAe()}} className="button button2">Use aerisweather</button>
+          {bool ?
+          <SubmitButton buttonPress={this.onButtonPressAApi}/>
+          :
           <SubmitButton buttonPress={this.onButtonPress}/>
+          }
           <SearchBox searchChange={this.onSearchChange}/>
-        <CardList weatherData={weatherData} bool={this.state.bool}/>
+          {bool ?
+            <CardList2 weatherData2={weatherData2}/>
+          :  
+            <CardList weatherData={weatherData}/>
+          }
       </div>
     );
   }
