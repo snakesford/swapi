@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import CardList from '../components/Assembly/CardList';
 import CardList2 from '../components/Assembly/CardList2';
-import SearchBox from '../components/SearchBox.js';
-import SubmitButton from '../components/SubmitButton.js'
-import Forecast from '../components/Forecast/Forecast.js'
+import SearchBox from '../components/SearchBox.jsx';
+import SubmitButton from '../components/SubmitButton.jsx'
+import Forecast from '../components/Forecast/Forecast.jsx'
 import './App.css'
 
 class App extends Component {

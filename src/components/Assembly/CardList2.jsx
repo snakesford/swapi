@@ -1,6 +1,6 @@
 import React from 'react';
 import Card2 from '../WindSpeed/Card2.js'
-import Condition2 from '../Condition/Condition2.js'
+import Condition2 from '../Condition/Condition2.jsx'
 import Temp2 from '../Fahrenheit/Temp2'
 import Name2 from '../Name/Name2.js'
 
