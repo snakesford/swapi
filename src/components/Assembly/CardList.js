@@ -3,6 +3,7 @@ import Card from '../WindSpeed/Card.js'
 import Temp from '../Fahrenheit/Temp.js'
 import Name from '../Name/Name.js'
 import Condition from '../Condition/Condition.js'
+import Forecast from '../Forecast/Forecast'
 
 const CardList = ({weatherData}) => {
   return (
@@ -22,6 +23,10 @@ const CardList = ({weatherData}) => {
           />
           <Card
             wind_mph={weatherData[i].current.wind_mph}
+          />
+          <Forecast
+            maxtemp_f={weatherData[i].forecast.forecastday[0].day.maxtemp_f}
+            mintemp_f={weatherData[i].forecast.forecastday[0].day.mintemp_f}
           />
         </div>
             

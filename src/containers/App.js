@@ -3,6 +3,7 @@ import CardList from '../components/Assembly/CardList';
 import CardList2 from '../components/Assembly/CardList2';
 import SearchBox from '../components/SearchBox.js';
 import SubmitButton from '../components/SubmitButton.js'
+import Forecast from '../components/Forecast/Forecast.js'
 import './App.css'
 
 class App extends Component {
@@ -14,6 +15,7 @@ class App extends Component {
       searchField: '45.57592, -122.85168',
       bool: false,
       url: 'https://weatherapi-com.p.rapidapi.com/current.json?q=',
+      forecast: 'https://weatherapi-com.p.rapidapi.com/forecast.json?q=',
       url1: 'https://aerisweather1.p.rapidapi.com/observations/',
       apiKey: '3a836c49fdmshf423ee7c43600d9p130177jsn92668590654f',
       apiHost: 'weatherapi-com.p.rapidapi.com',
@@ -31,14 +33,15 @@ class App extends Component {
         }
       };
       
-      fetch(''+this.state.url+''+this.state.searchField+'', options)
+      fetch(''+this.state.forecast+''+this.state.searchField+'', options)
       .then(response => response.json())
     .then(weather => this.setState({ weatherData: [weather]}))
     .catch(err => console.log('error', err));
+    console.log(this.state.weatherData);
     //add check somewhere to make sure string is valid before rerendering
   }
 
-  async fetchAApi() {
+  async fetchAeris() {
       const options = {
         method: 'GET',
         headers: {
@@ -53,20 +56,20 @@ class App extends Component {
       .catch(err => console.log('error', err));
   }
 
-  async stuff() {
-    const options = {
-      method: 'GET',
-      headers: {
-        'X-RapidAPI-Key': '3a836c49fdmshf423ee7c43600d9p130177jsn92668590654f',
-        'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'
-      }
-    };
+  // async fetch3DayCast() {
+  //   const options = {
+  //     method: 'GET',
+  //     headers: {
+  //       'X-RapidAPI-Key': '3a836c49fdmshf423ee7c43600d9p130177jsn92668590654f',
+  //       'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'
+  //     }
+  //   };
   
-  fetch('https://weatherapi-com.p.rapidapi.com/forecast.json?q=London&days=3', options)
-    .then(response => response.json())
-    .then(response => console.log(response))
-    .catch(err => console.error(err));
-  }
+  // fetch('https://weatherapi-com.p.rapidapi.com/forecast.json?q=45.57592%2C%20-122.85168&days=3', options)
+  //   .then(response => response.json())
+  //   .then(response => console.log(response))
+  //   .catch(err => console.error(err));
+  // }
 
   changeTheField = () => {
     this.setState({
@@ -101,7 +104,7 @@ class App extends Component {
 
   onButtonPressAApi = () => {
     if (this.state.searchField !== '') {
-        this.fetchAApi()
+        this.fetchAeris()
     } else {
       console.log("nothing in search field");
     }
