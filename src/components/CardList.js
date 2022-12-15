@@ -1,6 +1,6 @@
 import React from 'react';
-import Card from './Card.js'
-import Temp from './Temp.js'
+import Card from './WindSpeed/Card.js'
+import Temp from './Fahrenheit/Temp.js'
 import Name from './Name.js'
 import Condition from './Condition.js'
 

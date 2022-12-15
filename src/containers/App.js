@@ -53,6 +53,21 @@ class App extends Component {
       .catch(err => console.log('error', err));
   }
 
+  async stuff() {
+    const options = {
+      method: 'GET',
+      headers: {
+        'X-RapidAPI-Key': '3a836c49fdmshf423ee7c43600d9p130177jsn92668590654f',
+        'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'
+      }
+    };
+  
+  fetch('https://weatherapi-com.p.rapidapi.com/forecast.json?q=London&days=3', options)
+    .then(response => response.json())
+    .then(response => console.log(response))
+    .catch(err => console.error(err));
+  }
+
   changeTheField = () => {
     this.setState({
       searchField: ''
