@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import CardList from '../components/CardList';
-import CardList2 from '../components/CardList2';
+import CardList from '../components/Assembly/CardList';
+import CardList2 from '../components/Assembly/CardList2';
 import SearchBox from '../components/SearchBox.js';
 import SubmitButton from '../components/SubmitButton.js'
 import './App.css'
