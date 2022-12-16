@@ -19,6 +19,7 @@ const CardList = ({weatherData}) => {
             />
           <Temp 
             temp_f={weatherData[i].current.temp_f}
+            feelslike_f={weatherData[i].current.feelslike_f}
           />
           <Condition 
             text={weatherData[i].current.condition.text}
