@@ -1,8 +1,8 @@
 import React from 'react';
-import Card2 from '../WindSpeed/Card2.js'
+import Card2 from '../WindSpeed/Card2.jsx'
 import Condition2 from '../Condition/Condition2.jsx'
 import Temp2 from '../Fahrenheit/Temp2'
-import Name2 from '../Name/Name2.js'
+import Name2 from '../Name/Name2.jsx'
 
 const CardList = ({weatherData2}) => {
   return (

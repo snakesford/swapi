@@ -1,9 +1,10 @@
 import React from 'react';
-import Card from '../WindSpeed/Card.js'
+import Card from '../WindSpeed/Card.jsx'
 import Temp from '../Fahrenheit/Temp.jsx'
-import Name from '../Name/Name.js'
+import Name from '../Name/Name.jsx'
 import Condition from '../Condition/Condition.jsx'
 import Forecast from '../Forecast/Forecast'
+import ForecastTomorrow from '../Forecast/ForecastTomorrow.jsx'
 
 const CardList = ({weatherData}) => {
   return (
@@ -24,10 +25,14 @@ const CardList = ({weatherData}) => {
           <Card
             wind_mph={weatherData[i].current.wind_mph}
           />
-          <Forecast
-            maxtemp_f={weatherData[i].forecast.forecastday[0].day.maxtemp_f}
-            mintemp_f={weatherData[i].forecast.forecastday[0].day.mintemp_f}
-          />
+            <Forecast
+              maxtemp_f={weatherData[i].forecast.forecastday[0].day.maxtemp_f}
+              mintemp_f={weatherData[i].forecast.forecastday[0].day.mintemp_f}
+            />
+            <ForecastTomorrow
+              maxtemp_f={weatherData[i].forecast.forecastday[0].day.maxtemp_f}
+              mintemp_f={weatherData[i].forecast.forecastday[0].day.mintemp_f}
+            />
         </div>
             
         )
