@@ -33,7 +33,7 @@ class App extends Component {
         }
       };
       
-      fetch(''+this.state.forecast+''+this.state.searchField+'', options)
+      fetch(''+this.state.forecast+''+this.state.searchField+'' + '&days=3', options)
       .then(response => response.json())
     .then(weather => this.setState({ weatherData: [weather]}))
     .catch(err => console.log('error', err));
