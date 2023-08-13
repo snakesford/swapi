@@ -64,21 +64,6 @@ class App extends Component {
       .catch(err => console.log('error', err));
   }
 
-  // async fetch3DayCast() {
-  //   const options = {
-  //     method: 'GET',
-  //     headers: {
-  //       'X-RapidAPI-Key': '3a836c49fdmshf423ee7c43600d9p130177jsn92668590654f',
-  //       'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'
-  //     }
-  //   };
-  
-  // fetch('https://weatherapi-com.p.rapidapi.com/forecast.json?q=45.57592%2C%20-122.85168&days=3', options)
-  //   .then(response => response.json())
-  //   .then(response => console.log(response))
-  //   .catch(err => console.error(err));
-  // }
-
   resetSearchField = () => {
     this.setState(
       () => {
@@ -137,24 +122,6 @@ class App extends Component {
       }
     )
   }
-
-
-  // onButtonPressAApi = () => {
-  //   if (this.state.searchField !== '') {
-  //       this.fetchAeris()
-  //   } else {
-  //     console.log("nothing in search field");
-  //   }
-  // }
-
-
-  // onButtonPress = () => {
-  //   if (this.state.searchField !== '') {
-  //       this.fetchApi()
-  //   } else {
-  //     console.log("nothing in search field");
-  //   }
-  // }
 
   NEWonButtonPressNEW = () => {
     if (this.state.searchField !== '') {
