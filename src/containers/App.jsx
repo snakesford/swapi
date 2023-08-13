@@ -35,9 +35,17 @@ class App extends Component {
       
       fetch(''+this.state.forecast+''+this.state.searchField+'' + '&days=3', options)
       .then(response => response.json())
-    .then(weather => this.setState({ weatherData: [weather]}))
+    .then(weather => this.setState(
+      () => {
+        return {
+          weatherData: [weather]
+        };
+      },
+      () => {
+        console.log("fetchAPI", this.state.weatherData);
+      }
+    ))
     .catch(err => console.log('error', err));
-    console.log(this.state.weatherData);
     //add check somewhere to make sure string is valid before rerendering
   }
 
@@ -71,51 +79,92 @@ class App extends Component {
   //   .catch(err => console.error(err));
   // }
 
-  changeTheField = () => {
-    this.setState({
-      searchField: ''
-    })
+  resetSearchField = () => {
+    this.setState(
+      () => {
+        return {
+          searchField: ''
+        }
+      },
+      () => {
+
+      }
+    )
   }
 
   changeToAe = () => {
-    this.setState({
-      bool: true
-    })
-    this.onButtonPressAApi()
+    this.setState(
+      () => {
+        return {
+          bool: true
+        };
+      },
+      () => {
+        this.NEWonButtonPressNEW()
+      }
+
+    )
   }
 
   changeToCom = () => {
-    this.setState({
-      bool: false
-    })
-    this.onButtonPress()
+    this.setState(
+      () => {
+        return {
+          bool: false
+        }
+      },
+      () => {
+      }
+    )
+    this.NEWonButtonPressNEW()
   }
 
   
   componentDidMount() {
-    this.onButtonPress()
-    this.changeTheField()
+    this.NEWonButtonPressNEW()
+    this.resetSearchField()
   }
 
   onSearchChange = (event) => {
-    this.setState({ searchField: event.target.value })
+    this.setState(
+      () => {
+        return {
+          searchField: event.target.value
+        }
+      },
+      () => {
+
+      }
+    )
   }
 
 
-  onButtonPressAApi = () => {
+  // onButtonPressAApi = () => {
+  //   if (this.state.searchField !== '') {
+  //       this.fetchAeris()
+  //   } else {
+  //     console.log("nothing in search field");
+  //   }
+  // }
+
+
+  // onButtonPress = () => {
+  //   if (this.state.searchField !== '') {
+  //       this.fetchApi()
+  //   } else {
+  //     console.log("nothing in search field");
+  //   }
+  // }
+
+  NEWonButtonPressNEW = () => {
     if (this.state.searchField !== '') {
+      if (this.state.bool == true) {
         this.fetchAeris()
-    } else {
-      console.log("nothing in search field");
-    }
-  }
-
-
-  onButtonPress = () => {
-    if (this.state.searchField !== '') {
+      } else {
         this.fetchApi()
+      }
     } else {
-      console.log("nothing in search field");
+      console.log("Nothing in search field");
     }
   }
 
@@ -126,9 +175,9 @@ class App extends Component {
           <button onClick={() => { this.changeToCom()}} className="button button1">Use weatherapi-com</button>
           <button onClick={() => { this.changeToAe()}} className="button button2">Use aerisweather</button>
           {bool ?
-          <SubmitButton buttonPress={this.onButtonPressAApi}/>
+          <SubmitButton buttonPress={this.NEWonButtonPressNEW}/>
           :
-          <SubmitButton buttonPress={this.onButtonPress}/>
+          <SubmitButton buttonPress={this.NEWonButtonPressNEW}/>
           }
           <SearchBox searchChange={this.onSearchChange}/>
           {bool ?
