@@ -35,18 +35,18 @@ class App extends Component {
       
       fetch(''+this.state.forecast+''+this.state.searchField+'' + '&days=3', options)
       .then(response => response.json())
-    .then(weather => this.setState(
-      () => {
-        return {
-          weatherData: [weather]
-        };
-      },
-      () => {
-        console.log("fetchAPI", this.state.weatherData);
-      }
-    ))
-    .catch(err => console.log('error', err));
-    //add check somewhere to make sure string is valid before rerendering
+      .then(weather => this.setState(
+        () => {
+          return {
+            weatherData: [weather]
+          };
+        },
+        () => {
+          console.log("fetchAPI", this.state.weatherData);
+        }
+      ))
+      .catch(err => console.log('error', err));
+      //add check somewhere to make sure string is valid before rerendering
   }
 
   async fetchAeris() {
