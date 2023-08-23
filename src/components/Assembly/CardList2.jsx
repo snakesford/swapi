@@ -11,7 +11,6 @@ const CardList = ({weatherData2}) => {
         return (
           <div key={i}>
             <Name2 name={weatherData2[i].response.place.name} state={weatherData2[i].response.place.state}/>
-            {console.log(weatherData2[i].response)}
             <Temp2 tempF={weatherData2[i].response.ob.tempF}/>
             <Condition2 weather={weatherData2[i].response.ob.weather}/>
           <Card2

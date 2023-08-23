@@ -99,6 +99,7 @@ class App extends Component {
         }
       },
       () => {
+        this.NEWonButtonPressNEW()
       }
     )
     this.NEWonButtonPressNEW()
