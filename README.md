@@ -1,1 +1,1 @@
-A weather api built for dad
+A weather api
